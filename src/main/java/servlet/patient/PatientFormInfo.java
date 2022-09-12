@@ -23,6 +23,7 @@ public class PatientFormInfo extends HttpServlet {
         var firstname = request.getParameter("firstname");
 
         var patientDao = new PatientDAO();
+
         patientDao.createPatients(firstname, lastname);
     }
 }
