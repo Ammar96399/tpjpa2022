@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name="userinfo",
         urlPatterns={"/UserInfo"})
 public class UserInfo extends HttpServlet {
+
     public void doPost(HttpServletRequest request,
-                       HttpServletResponse response)
+                        HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
 
