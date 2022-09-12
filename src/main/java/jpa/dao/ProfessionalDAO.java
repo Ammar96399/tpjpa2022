@@ -28,7 +28,7 @@ public class ProfessionalDAO extends GenericJpaDAO<Professional, Long> {
 
     public List<Professional> listProfessionals() {
         return manager
-                .createQuery("SELECT p FROM Patient p", Professional.class)
+                .createQuery("SELECT p FROM Professional p", Professional.class)
                 .getResultList();
     }
 

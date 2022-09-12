@@ -2,6 +2,7 @@ package jpa;
 
 import jpa.dao.ChildDAO;
 import jpa.dao.PatientDAO;
+import jpa.dao.ProfessionalDAO;
 
 public class JpaTest {
 
@@ -11,16 +12,16 @@ public class JpaTest {
 	public static void main(String[] args) {
 		var manager = EntityManagerHelper.getEntityManager();
 		var tx = manager.getTransaction();
-		var patientDAO = new PatientDAO();
+		var patientDAO = new ProfessionalDAO();
 		var childDAO = new ChildDAO();
 		tx.begin();
 		try {
-			patientDAO.createPatients("Cambria", "Alpha");
-			patientDAO.createPatients("Maria", "Beta");
-			patientDAO.createPatients("Jean", "Citron");
+			patientDAO.createProfessional("Cambria", "Alpha");
+			patientDAO.createProfessional("Maria", "Beta");
+			patientDAO.createProfessional("Jean", "Citron");
 			childDAO.createChild("firstChild", "good", "parent", 12);
 
-			patientDAO.getPatientList().forEach(System.out::println);
+			patientDAO.getAll().forEach(System.out::println);
 
 			System.out.println(patientDAO.getPatientByName("Maria", "Beta"));
 		} catch (Exception e) {
