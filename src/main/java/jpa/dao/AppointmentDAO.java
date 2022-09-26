@@ -13,7 +13,10 @@ public class AppointmentDAO extends GenericJpaDAO<Appointment, Long> {
     }
 
     public void addAppointment(String reason, LocalDateTime startingTime, Patient patient, Professional professional) {
+        var tx = manager.getTransaction();
+        tx.begin();
         manager.persist(new Appointment(reason, startingTime, patient, professional));
+        tx.commit();
     }
     // Access appointments
     public List<Appointment> getAppointmentsByProfessionalId(Long id) {

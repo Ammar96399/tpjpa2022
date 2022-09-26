@@ -11,7 +11,10 @@ public class ChildDAO extends GenericJpaDAO{
     }
 
     public void createChild(String firstName, String lastName, String parentName, Integer age) {
+        var tx = manager.getTransaction();
+        tx.begin();
         manager.persist(new Child(firstName, lastName, parentName, age));
+        tx.commit();
     }
 
     // We think that returning a list is better than returning a single element from a list.

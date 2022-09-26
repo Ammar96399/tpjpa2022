@@ -14,7 +14,9 @@ public class PatientDAO extends GenericJpaDAO<Patient, Long> {
     // Create queries
 
     public void createPatients(String firstName, String lastName) {
+        manager.getTransaction().begin();
         manager.persist(new Patient(firstName, lastName));
+        manager.getTransaction().commit();
     }
 
     // Fetch queries
